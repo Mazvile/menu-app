@@ -14,7 +14,7 @@ public class Menu {
         return null;
     }
 
-    public List<Recipe> getRecipesFromProductsInTheFridge() {
+    public List<Recipe> getRecipesFromProductsFromSupplies() {
 
         return null;
     }

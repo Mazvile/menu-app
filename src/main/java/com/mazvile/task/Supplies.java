@@ -3,7 +3,7 @@ package com.mazvile.task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fridge {
+public class Supplies {
 
     private List<Product> products = new ArrayList<Product>();
 
@@ -13,5 +13,9 @@ public class Fridge {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public void addProduct(Product product) {
+        this.products.add(product);
     }
 }

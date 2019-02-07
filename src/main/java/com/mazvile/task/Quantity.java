@@ -3,6 +3,7 @@ package com.mazvile.task;
 public class Quantity {
 
     private int value;
+    private Units unit;
 
     public int getValue() {
         return value;
@@ -19,7 +20,5 @@ public class Quantity {
     public void setUnit(Units unit) {
         this.unit = unit;
     }
-
-    private Units unit;
 
 }
