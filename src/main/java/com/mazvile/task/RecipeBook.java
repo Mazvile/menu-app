@@ -1,5 +1,7 @@
 package com.mazvile.task;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +24,13 @@ public class RecipeBook {
         return filteredRecipes;
     }
 
-    public void addRecipe(String name, RecipeType type, List<Product> products) {
-        Recipe recipe = new Recipe(name, type, products);
-        recipes.add(recipe);
+    public boolean addRecipe(String name, RecipeType type, List<Product> products) {
+        if (!StringUtils.isBlank(name)) {
+            Recipe recipe = new Recipe(name, type, products);
+            recipes.add(recipe);
+            return true;
+        }
+        return false;
     }
 
 }
