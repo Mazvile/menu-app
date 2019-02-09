@@ -4,18 +4,13 @@ import java.util.List;
 
 public class Menu {
 
-    public List<Recipe> makeRandomMenu(
-            int numberOfFishDishes,
-            int numberOfMeatDishes,
-            int numberOfChickenDishes,
-            int numberOfVegieDishes) {
+    private List<Recipe> menuRecipes;
 
-
-        return null;
+    public Menu(List<Recipe> recipes) {
+        this.menuRecipes = recipes;
     }
 
-    public List<Recipe> getRecipesFromProductsFromSupplies() {
-
-        return null;
+    public List<Recipe> getMenuRecipes() {
+        return menuRecipes;
     }
 }
