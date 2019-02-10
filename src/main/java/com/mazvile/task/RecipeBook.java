@@ -70,7 +70,12 @@ public class RecipeBook {
 
 
     public List<Recipe> getRecipesFromProductsFromSupplies(Supplies supplies) {
-
-        return null;
+        List<Recipe> possibleRecipes = new ArrayList<>();
+        for (Recipe recipe : recipes) {
+            if (supplies.canIMakeThisRecipe(recipe)) {
+                possibleRecipes.add(recipe);
+            }
+        }
+        return possibleRecipes;
     }
 }
