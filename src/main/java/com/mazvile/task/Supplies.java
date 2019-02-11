@@ -44,7 +44,6 @@ public class Supplies {
     }
 
     private List<Product> substractSupplies(List<Product> productsNeeded) {
-        //TODO finish this up
         List<Product> result = new ArrayList<>();
         for (Product product : productsNeeded) {
             for (Product supply : supplies) {
@@ -56,9 +55,14 @@ public class Supplies {
                 }
 
             }
+            if (product.getQuantity().getValue() > 0) {
+                result.add(product);
+            }
+
+
         }
 
-        return null;
+        return result;
     }
 
     private List<Product> sumSameProducts(List<Product> products) {
