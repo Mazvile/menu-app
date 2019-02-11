@@ -36,14 +36,17 @@ public class Supplies {
         List<Recipe> menuRecipes = menu.getMenuRecipes();
         List<Product> productsNeeded = new ArrayList<>();
         for (Recipe recipe : menuRecipes) {
-            productsNeeded.addAll(recipe.getProducts());
+            for (Product product : recipe.getProducts()) {
+                Product copy = new Product(product.getName(), product.getQuantity().getValue(), product.getQuantity().getUnit());
+                productsNeeded.add(copy);
+            }
         }
         List<Product> optimizedProducts = sumSameProducts(productsNeeded);
-        List<Product> productsToBuy = new ArrayList<>();
-        return optimizedProducts;
+        List<Product> productsToBuy = subtractSupplies(optimizedProducts);
+        return productsToBuy;
     }
 
-    private List<Product> substractSupplies(List<Product> productsNeeded) {
+    private List<Product> subtractSupplies(List<Product> productsNeeded) {
         List<Product> result = new ArrayList<>();
         for (Product product : productsNeeded) {
             for (Product supply : supplies) {
