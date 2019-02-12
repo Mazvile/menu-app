@@ -34,4 +34,8 @@ public class RecipeBook {
         }
         return false;
     }
+
+    public boolean addRecipe(Recipe recipe) {
+        return recipes.add(recipe);
+    }
 }
