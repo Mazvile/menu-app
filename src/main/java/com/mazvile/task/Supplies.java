@@ -11,12 +11,12 @@ public class Supplies {
         return supplies;
     }
 
-    public void setSupplies(List<Product> supplies) {
-        this.supplies = supplies;
-    }
-
     public void addProduct(Product product) {
         this.supplies.add(product);
+    }
+
+    public void addProducts(List<Product> products) {
+        this.supplies.addAll(products);
     }
 
     public boolean canIMakeThisRecipe(Recipe recipe) {
