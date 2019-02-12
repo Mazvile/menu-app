@@ -6,7 +6,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        testCase();
+        //testCase();
+        testCase2();
     }
 
     private static void testCase() {
@@ -45,6 +46,36 @@ public class Main {
 
         System.out.println("Need to buy:");
         List<Product> toBuy = testSupplies.productsToBuy(testMenu);
+
+        for (Product pr: toBuy){
+            System.out.println(pr.getName() + " " + pr.getQuantity().getValue() + " " + pr.getQuantity().getUnit());
+        }
+    }
+
+    private static void testCase2() {
+        RecipeBook testBook = new RecipeBook();
+        Supplies testSupplies = new Supplies();
+        MenuGenerator testGenerator = new MenuGenerator(testBook);
+        ProductMaker fakeProduct = new ProductMaker();
+        RecipeMaker fakeRecipe = new RecipeMaker();
+
+        for (int i = 0; i < 10; i ++) {
+            testSupplies.addProduct(fakeProduct.randomProduct());
+        }
+
+        for (int i = 0; i < 30; i++) {
+            testBook.getRecipes().add(fakeRecipe.makeRandomRecipe());
+        }
+
+        Menu fakeMenu = testGenerator.makeRandomMenu(1, 2, 3, 2);
+
+        System.out.println("Weeks menu:");
+        for (Recipe rp : fakeMenu.getMenuRecipes()) {
+            System.out.println(rp.getName());
+        }
+
+        System.out.println("Need to buy:");
+        List<Product> toBuy = testSupplies.productsToBuy(fakeMenu);
 
         for (Product pr: toBuy){
             System.out.println(pr.getName() + " " + pr.getQuantity().getValue() + " " + pr.getQuantity().getUnit());

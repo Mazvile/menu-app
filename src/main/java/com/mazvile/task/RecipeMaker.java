@@ -14,7 +14,7 @@ public class RecipeMaker {
 
     private String setRandomName() {
         String uniqueName = "Recipe Nr. " + (UUID.randomUUID().toString());
-        return null;
+        return uniqueName;
     }
 
     private RecipeType setRandomType() {
