@@ -7,7 +7,15 @@ public class Main {
 
     public static void main(String[] args) {
         //testCase();
-        testCase2();
+        //testCase2();
+        RecipeBookReader recipeBookReader = new RecipeBookReader();
+        SuppliesReader suppliesReader = new SuppliesReader();
+        RecipeBook testBook = recipeBookReader.readRecipesFromFile();
+        Supplies testSupplies = suppliesReader.readSuppliesFromFile();
+        MenuGenerator testGenerator = new MenuGenerator(testBook);
+
+        UI ui = new UI(testSupplies, testBook, testGenerator);
+        ui.hello();
     }
 
     private static void testCase() {
@@ -19,9 +27,9 @@ public class Main {
         Product testProduct1 = new Product("Paprika", 2, Units.PCS);
         Product testProduct2 = new Product("Flour", 200, Units.GRAMS);
         Product testProduct3 = new Product("Salt", 2, Units.GRAMS);
-        Product testProduct4 = new Product("Milk", 500, Units.MILILITERS);
+        Product testProduct4 = new Product("Milk", 500, Units.MILLILITERS);
         Product testProduct5 = new Product("Pea", 1, Units.PCS);
-        Product testProduct6 = new Product("Milk", 50, Units.MILILITERS);
+        Product testProduct6 = new Product("Milk", 50, Units.MILLILITERS);
         Product testProduct7 = new Product("Paprika", 3, Units.PCS);
 
         testProductsForRecipe.add(testProduct5);

@@ -32,7 +32,7 @@ public class ProductMaker {
                 randomNumber = rn.nextInt(mililiters.length);
                 product.setName(mililiters[randomNumber]);
                 randomNumber = rn.nextInt(5);
-                quantity.setUnit(Units.MILILITERS);
+                quantity.setUnit(Units.MILLILITERS);
                 quantity.setValue((randomNumber + 1) * 100);
                 ;
                 break;
