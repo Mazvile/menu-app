@@ -1,5 +1,5 @@
 Milk 7000 MILLILITERS
-Eggs 10 PCS
+Egg 10 PCS
 Sour_Cream 30 GRAMS
 Salad_dressing 300 MILLILITERS
 Cream_12 500 MILLILITERS
@@ -11,3 +11,7 @@ Onion 3 PCS
 Eggplant 1 PCS
 Zucchini 2 PCS
 Cheese 400 GRAMS
+Honey 2000 GRAMS
+Salt 200 GRAMS
+White_bread 100 GRAMS
+Black_pepper 100 GRAMS

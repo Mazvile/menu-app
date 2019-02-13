@@ -1,2 +1,5 @@
 Lasagna VEGETARIAN Cheese 200 GRAMS Carrot 2 PCS Eggplant 1 PCS Cream_30 200 MILLILITERS
 Some_fish FISH Fish 300 GRAMS Egg 1 PCS Flour 100 GRAMS Salt 6 GRAMS
+Mac_and_cheese MEAT Cheese 100 GRAMS Meat 250 GRAMS Paprika 2 PCS Onion 1 PCS
+Chicken POULTRY Chicken 1 PCS Rosemary 10 GRAMS Black_pepper 7 GRAMS Lemon_juice 80 MILLILITERS
+Simple_meal DESSERT Milk 100 MILLILITERS
