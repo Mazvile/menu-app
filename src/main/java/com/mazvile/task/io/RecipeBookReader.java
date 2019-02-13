@@ -1,4 +1,10 @@
-package com.mazvile.task;
+package com.mazvile.task.io;
+
+import com.mazvile.task.logic.RecipeBook;
+import com.mazvile.task.model.Product;
+import com.mazvile.task.model.Recipe;
+import com.mazvile.task.model.RecipeType;
+import com.mazvile.task.model.Units;
 
 import java.io.*;
 import java.util.ArrayList;

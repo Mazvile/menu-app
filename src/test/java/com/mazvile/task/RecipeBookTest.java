@@ -1,11 +1,13 @@
 package com.mazvile.task;
 
+import com.mazvile.task.logic.RecipeBook;
+import com.mazvile.task.model.Recipe;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.mazvile.task.RecipeType.*;
+import static com.mazvile.task.model.RecipeType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 

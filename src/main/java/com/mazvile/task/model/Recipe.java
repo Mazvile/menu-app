@@ -1,4 +1,7 @@
-package com.mazvile.task;
+package com.mazvile.task.model;
+
+import com.mazvile.task.model.Product;
+import com.mazvile.task.model.RecipeType;
 
 import java.util.List;
 

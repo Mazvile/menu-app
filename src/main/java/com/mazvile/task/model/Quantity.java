@@ -1,4 +1,4 @@
-package com.mazvile.task;
+package com.mazvile.task.model;
 
 public class Quantity {
 

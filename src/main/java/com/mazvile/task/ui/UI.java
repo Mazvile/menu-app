@@ -1,14 +1,24 @@
-package com.mazvile.task;
+package com.mazvile.task.ui;
 
+import com.mazvile.task.logic.MenuGenerator;
+import com.mazvile.task.model.Recipe;
+import com.mazvile.task.logic.RecipeBook;
+import com.mazvile.task.logic.Supplies;
+import com.mazvile.task.io.ReminderWriter;
+import com.mazvile.task.model.Menu;
+import com.mazvile.task.model.Product;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class UI {
 
-    Supplies supplies;
-    RecipeBook recipeBook;
-    Scanner in = new Scanner(System.in);
-    MenuGenerator menuGenerator;
+    private Supplies supplies;
+    private RecipeBook recipeBook;
+    private Scanner in = new Scanner(System.in);
+    private MenuGenerator menuGenerator;
+    private ReminderWriter rw = new ReminderWriter();
 
     public UI(Supplies supplies, RecipeBook recipeBook, MenuGenerator menuGenerator) {
         this.supplies = supplies;
@@ -32,7 +42,23 @@ public class UI {
         int choice = in.nextInt();
         switch (choice) {
             case 1:
-                System.out.println("Not implemented yet");
+                System.out.println("Select dishes by pressing number of the dish and when you're done - press 0");
+                recipeListPrinting(recipeBook.getRecipes());
+                List<Recipe> chosenRecipes = new ArrayList<>();
+                int numberOfDish = in.nextInt();
+                while (numberOfDish != 0) {
+                    chosenRecipes.add(recipeBook.getRecipes().get(numberOfDish - 1));
+                    numberOfDish = in.nextInt();
+                }
+                System.out.println("Your choices are:");
+                recipeListPrinting(chosenRecipes);
+                System.out.println();
+                Menu menu = new Menu(chosenRecipes);
+                productListPrinting(supplies.productsToBuy(menu));
+                System.out.println();
+                System.out.println("Printing your Reminder.txt");
+
+                rw.writeReminderToFile(chosenRecipes, supplies.productsToBuy(menu));
                 break;
             case 2:
                 System.out.println("How many fish dishes you would like to eat this week?");
@@ -81,6 +107,10 @@ public class UI {
             System.out.println("" + counter + ". " + rp.getName());
             counter++;
         }
+    }
+
+    public void printOutReminder() {
+
     }
 
 }

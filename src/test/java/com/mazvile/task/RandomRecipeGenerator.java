@@ -1,11 +1,15 @@
 package com.mazvile.task;
 
+import com.mazvile.task.model.Product;
+import com.mazvile.task.model.Recipe;
+import com.mazvile.task.model.RecipeType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class RecipeMaker {
+public class RandomRecipeGenerator {
 
     public Recipe makeRandomRecipe() {
         Recipe recipe = new Recipe(setRandomName(), setRandomType(), setRandomProducts());
@@ -37,12 +41,12 @@ public class RecipeMaker {
     }
 
     private List<Product> setRandomProducts() {
-        ProductMaker productMaker = new ProductMaker();
+        RandomProductGenerator randomProductGenerator = new RandomProductGenerator();
         List<Product> randomProducts = new ArrayList<>();
         Random rn = new Random();
         int numberOfProducts = rn.nextInt(5) + 3;
         for (int i = 0; i < numberOfProducts; i++) {
-            randomProducts.add(productMaker.randomProduct());
+            randomProducts.add(randomProductGenerator.randomProduct());
         }
         return randomProducts;
     }

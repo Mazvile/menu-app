@@ -1,4 +1,8 @@
-package com.mazvile.task;
+package com.mazvile.task.io;
+
+import com.mazvile.task.model.Product;
+import com.mazvile.task.logic.Supplies;
+import com.mazvile.task.model.Units;
 
 import java.io.*;
 

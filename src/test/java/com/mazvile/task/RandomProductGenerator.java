@@ -1,8 +1,12 @@
 package com.mazvile.task;
 
+import com.mazvile.task.model.Product;
+import com.mazvile.task.model.Quantity;
+import com.mazvile.task.model.Units;
+
 import java.util.Random;
 
-public class ProductMaker {
+public class RandomProductGenerator {
 
     private String[] pcs = {"Potato", "Cucumber", "Paprika", "Eggplant", "Egg", "Apple", "Lemon"};
     private String[] grams = {"Salt", "Sugar", "Bacon", "Salmon", "Flour"};
