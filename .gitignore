@@ -178,3 +178,5 @@ hs_err_pid*
 /bin/
 /RemoteSystemsTempFiles/
 /.recommenders/
+
+Reminder.txt
