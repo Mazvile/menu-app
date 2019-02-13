@@ -22,7 +22,7 @@ public class RecipeMaker {
         int type = rn.nextInt(6);
         switch (type) {
             case 0:
-                return RecipeType.CHICKEN;
+                return RecipeType.POULTRY;
             case 1:
                 return RecipeType.FISH;
             case 2:

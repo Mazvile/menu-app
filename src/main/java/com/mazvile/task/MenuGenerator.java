@@ -15,18 +15,18 @@ public class MenuGenerator {
     public Menu makeRandomMenu(
             int numberOfFishDishes,
             int numberOfMeatDishes,
-            int numberOfChickenDishes,
+            int numberOfPoultryDishes,
             int numberOfVeggieDishes) {
 
         List<Recipe> selectedFishDishes = getRandomDishes(RecipeType.FISH, numberOfFishDishes);
         List<Recipe> selectedMeatDishes = getRandomDishes(RecipeType.MEAT, numberOfMeatDishes);
-        List<Recipe> selectedChickenDishes = getRandomDishes(RecipeType.CHICKEN, numberOfChickenDishes);
+        List<Recipe> selectedPoultryDishes = getRandomDishes(RecipeType.POULTRY, numberOfPoultryDishes);
         List<Recipe> selectedVeggieDishes = getRandomDishes(RecipeType.VEGETARIAN, numberOfVeggieDishes);
 
         List<Recipe> allMenuRecipes = new ArrayList<>();
         allMenuRecipes.addAll(selectedFishDishes);
         allMenuRecipes.addAll(selectedMeatDishes);
-        allMenuRecipes.addAll(selectedChickenDishes);
+        allMenuRecipes.addAll(selectedPoultryDishes);
         allMenuRecipes.addAll(selectedVeggieDishes);
 
         Menu menu = new Menu(allMenuRecipes);

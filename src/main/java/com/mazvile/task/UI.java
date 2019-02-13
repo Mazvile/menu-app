@@ -35,20 +35,28 @@ public class UI {
                 System.out.println("Not implemented yet");
                 break;
             case 2:
-                Menu newMenu = menuGenerator.makeRandomMenu(0, 0, 0, 1); //standard menu
-                System.out.println("Random menu made");
+                System.out.println("How many fish dishes you would like to eat this week?");
+                int numberOfFishDishes = in.nextInt();
+                System.out.println("How many poultry dishes you would like to eat this week?");
+                int numberOfPoultryDishes = in.nextInt();
+                System.out.println("How many meat dishes you would like to eat this week?");
+                int numberOfMeatDishes = in.nextInt();
+                System.out.println("How many vegetarian dishes you would like to eat this week?");
+                int numberOfVeggieDishes = in.nextInt();
+                Menu newMenu = menuGenerator.makeRandomMenu(numberOfFishDishes, numberOfMeatDishes, numberOfPoultryDishes, numberOfVeggieDishes); //standard menu
+                recipeListPrinting(newMenu);
+                System.out.println();
                 productListPrinting(supplies.productsToBuy(newMenu));
                 break;
             case 3:
-                //menuGenerator.getRecipesFromProductsFromSupplies(supplies);
-                System.out.println("You can make this recipes:");
+                List<Recipe> recipesFromSupplies = menuGenerator.getRecipesFromProductsFromSupplies(supplies);
+                recipeListPrinting(recipesFromSupplies);
                 break;
         }
     }
 
     public void productListPrinting(List<Product> products) {
         System.out.println("Need to buy:");
-        System.out.println();
         for (int i = 0; i < products.size(); i++) {
             System.out.println("" + (i + 1) + ". " + products.get(i).getName()
                     + " " + products.get(i).getQuantity().getValue()
@@ -59,8 +67,19 @@ public class UI {
 
     public void recipeListPrinting(Menu newMenu) {
         System.out.println("Weeks menu:");
+        int counter = 1;
         for (Recipe rp : newMenu.getMenuRecipes()) {
-            System.out.println(rp.getName());
+            System.out.println("" + counter + ". " + rp.getName());
+            counter++;
+        }
+    }
+
+    public void recipeListPrinting(List<Recipe> recipes) {
+        System.out.println("You can make this recipes:");
+        int counter = 1;
+        for (Recipe rp : recipes) {
+            System.out.println("" + counter + ". " + rp.getName());
+            counter++;
         }
     }
 
