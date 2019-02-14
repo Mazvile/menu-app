@@ -4,7 +4,7 @@ import com.mazvile.task.logic.MenuGenerator;
 import com.mazvile.task.model.Recipe;
 import com.mazvile.task.logic.RecipeBook;
 import com.mazvile.task.logic.Supplies;
-import com.mazvile.task.io.ReminderWriter;
+import com.mazvile.task.io.WriterToFile;
 import com.mazvile.task.model.Menu;
 import com.mazvile.task.model.Product;
 
@@ -19,7 +19,7 @@ public class UI {
     private RecipeBook recipeBook;
     private Scanner in = new Scanner(System.in);
     private MenuGenerator menuGenerator;
-    private ReminderWriter rw = new ReminderWriter();
+    private WriterToFile rw = new WriterToFile();
 
     public UI(Supplies supplies, RecipeBook recipeBook, MenuGenerator menuGenerator) {
         this.supplies = supplies;
@@ -93,7 +93,7 @@ public class UI {
 
     public void printOutReminder(List<Recipe> recipes, List<Product> products) {
         System.out.println("Printing your Reminder.txt . . . .");
-        rw.writeReminderToFile(recipes, products);
+        rw.writeReminder(recipes, products);
         System.out.println("Your reminder is printed");
     }
 

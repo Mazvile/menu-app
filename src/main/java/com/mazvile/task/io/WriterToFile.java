@@ -9,9 +9,10 @@ import com.mazvile.task.model.Product;
 import com.mazvile.task.model.Recipe;
 import org.apache.commons.io.FileUtils;
 
-public class ReminderWriter {
+public class WriterToFile implements IWriter{
 
-    public void writeReminderToFile(List<Recipe> recipes, List<Product> products) {
+    @Override
+    public void writeReminder(List<Recipe> recipes, List<Product> products) {
 
         try {
             File file = new File("Reminder.txt");
