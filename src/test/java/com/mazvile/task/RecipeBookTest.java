@@ -37,9 +37,28 @@ public class RecipeBookTest {
     }
 
     @Test
-    public void addRecipeShouldHaveNameAdded() {
+    public void addRecipeShouldHaveName() {
         RecipeBook rb = new RecipeBook();
         boolean ifAdded = rb.addRecipe(" ", DESSERT, new ArrayList<>());
+        assertFalse(ifAdded);
+        assertEquals(0, rb.getRecipes().size());
+
+    }
+
+    @Test
+    public void addRecipeOverloadedShouldDoAddRecipeToRecipeBook() {
+        RecipeBook rb = new RecipeBook();
+        Recipe testRecipe = new Recipe("Fish dish", FISH, new ArrayList<>());
+        assertEquals(0, rb.getRecipes().size());
+        rb.addRecipe(testRecipe);
+        assertEquals(1, rb.getRecipes().size());
+    }
+
+    @Test
+    public void addRecipeOverloadedShouldHaveName() {
+        RecipeBook rb = new RecipeBook();
+        Recipe testRecipe = new Recipe(" ", DESSERT, new ArrayList<>());
+        boolean ifAdded = rb.addRecipe(testRecipe);
         assertFalse(ifAdded);
         assertEquals(0, rb.getRecipes().size());
 

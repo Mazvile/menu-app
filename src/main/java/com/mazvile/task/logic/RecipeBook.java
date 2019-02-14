@@ -38,6 +38,10 @@ public class RecipeBook {
     }
 
     public boolean addRecipe(Recipe recipe) {
-        return recipes.add(recipe);
+        if (!StringUtils.isBlank(recipe.getName())) {
+            recipes.add(recipe);
+            return true;
+        }
+        return false;
     }
 }
