@@ -41,7 +41,7 @@ public class UI {
         System.out.println();
         int choice = -1;
         try {
-        choice = in.nextInt();
+            choice = in.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Invalid number, please try again.");
             in.next();
@@ -101,12 +101,26 @@ public class UI {
         System.out.println("Select dishes by pressing number of the dish and when you're done - press 0");
         recipeListPrinting(recipeBook.getRecipes());
         List<Recipe> chosenRecipes = new ArrayList<>();
-        int numberOfDish = in.nextInt();
 
-        while (numberOfDish != 0) {
-            chosenRecipes.add(recipeBook.getRecipes().get(numberOfDish - 1));
+        int numberOfDish = -1;
+        try {
             numberOfDish = in.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid number, please try again.");
+            in.next();
+            option1();
         }
+        while (numberOfDish != 0) {
+            if (numberOfDish >= 0 && numberOfDish < recipeBook.getRecipes().size()) {
+                chosenRecipes.add(recipeBook.getRecipes().get(numberOfDish - 1));
+                numberOfDish = in.nextInt();
+            } else {
+                System.out.println("Invalid number, please try again.");
+                in.next();
+                break;
+            }
+        }
+
         System.out.println("Your choices are:");
         recipeListPrinting(chosenRecipes);
         System.out.println();
