@@ -5,6 +5,7 @@ import com.mazvile.task.io.ReaderFromFile;
 import com.mazvile.task.logic.MenuGenerator;
 import com.mazvile.task.logic.RecipeBook;
 import com.mazvile.task.logic.Supplies;
+import com.mazvile.task.ui.ConsoleUI;
 import com.mazvile.task.ui.UI;
 
 public class Main {
@@ -16,7 +17,7 @@ public class Main {
         Supplies testSupplies = suppliesReader.readSupplies();
         MenuGenerator testGenerator = new MenuGenerator(testBook);
 
-        UI ui = new UI(testSupplies, testBook, testGenerator);
-        ui.hello();
+        UI consoleUi = new ConsoleUI(testSupplies, testBook, testGenerator);
+        consoleUi.start();
     }
 }
