@@ -44,7 +44,8 @@ public class UI {
         choice = in.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Invalid number, please try again.");
-            choice = in.nextInt();
+            in.next();
+            //choice = in.nextInt();
             options();
         }
 
@@ -102,6 +103,7 @@ public class UI {
         recipeListPrinting(recipeBook.getRecipes());
         List<Recipe> chosenRecipes = new ArrayList<>();
         int numberOfDish = in.nextInt();
+
         while (numberOfDish != 0) {
             chosenRecipes.add(recipeBook.getRecipes().get(numberOfDish - 1));
             numberOfDish = in.nextInt();
@@ -135,6 +137,7 @@ public class UI {
 
     public void option3() {
         List<Recipe> recipesFromSupplies = menuGenerator.getRecipesFromProductsFromSupplies(supplies);
+        System.out.println("You can make:");
         recipeListPrinting(recipesFromSupplies);
     }
 }
