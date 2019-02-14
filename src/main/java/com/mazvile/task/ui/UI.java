@@ -45,7 +45,6 @@ public class UI {
         } catch (InputMismatchException e) {
             System.out.println("Invalid number, please try again.");
             in.next();
-            //choice = in.nextInt();
             options();
         }
 
