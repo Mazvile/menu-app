@@ -6,7 +6,6 @@ public class Product {
     private Quantity quantity;
 
     public Product() {
-
     }
 
     public Product(String name, int value, Units units) {

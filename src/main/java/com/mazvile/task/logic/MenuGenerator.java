@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class MenuGenerator {
 
-    RecipeBook recipeBook;
+    private RecipeBook recipeBook;
 
     public MenuGenerator(RecipeBook recipeBook) {
         this.recipeBook = recipeBook;
@@ -58,5 +58,4 @@ public class MenuGenerator {
         }
         return possibleRecipes;
     }
-
 }

@@ -11,12 +11,10 @@ import com.mazvile.task.ui.UI;
 public class Main {
 
     public static void main(String[] args) {
-        IReader recipeBookReader = new ReaderFromFile();
-        IReader suppliesReader = new ReaderFromFile();
-        RecipeBook testBook = recipeBookReader.readRecipes();
-        Supplies testSupplies = suppliesReader.readSupplies();
+        IReader reader = new ReaderFromFile();
+        RecipeBook testBook = reader.readRecipes();
+        Supplies testSupplies = reader.readSupplies();
         MenuGenerator testGenerator = new MenuGenerator(testBook);
-
         UI consoleUi = new ConsoleUI(testSupplies, testBook, testGenerator);
         consoleUi.start();
     }

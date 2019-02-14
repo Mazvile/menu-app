@@ -60,15 +60,11 @@ public class Supplies {
 
                     product.getQuantity().setValue(val1 - val2);
                 }
-
             }
             if (product.getQuantity().getValue() > 0) {
                 result.add(product);
             }
-
-
         }
-
         return result;
     }
 
@@ -91,5 +87,4 @@ public class Supplies {
         }
         return optimizedProductList;
     }
-
 }

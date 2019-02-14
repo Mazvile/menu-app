@@ -61,7 +61,5 @@ public class RecipeBookTest {
         boolean ifAdded = rb.addRecipe(testRecipe);
         assertFalse(ifAdded);
         assertEquals(0, rb.getRecipes().size());
-
     }
-
 }

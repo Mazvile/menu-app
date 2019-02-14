@@ -1,8 +1,5 @@
 package com.mazvile.task.model;
 
-import com.mazvile.task.model.Product;
-import com.mazvile.task.model.RecipeType;
-
 import java.util.List;
 
 public class Recipe {
@@ -16,7 +13,6 @@ public class Recipe {
         this.dishType = type;
         this.products = products;
     }
-
 
     public RecipeType getDishType() {
         return dishType;
