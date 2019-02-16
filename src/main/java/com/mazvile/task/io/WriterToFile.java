@@ -9,11 +9,10 @@ import com.mazvile.task.model.Product;
 import com.mazvile.task.model.Recipe;
 import org.apache.commons.io.FileUtils;
 
-public class WriterToFile implements IWriter{
+public class WriterToFile implements IWriter {
 
     @Override
     public void writeReminder(List<Recipe> recipes, List<Product> products) {
-
         try {
             File file = new File("Reminder.txt");
 
@@ -25,7 +24,8 @@ public class WriterToFile implements IWriter{
             lines.add("");
             lines.add("Products to buy:");
             for (int i = 0; i < products.size(); i++) {
-                lines.add("" + (i + 1) + ". " + products.get(i).getName() + " " + products.get(i).getQuantity().getValue() + " " + products.get(i).getQuantity().getUnit());
+                lines.add("" + (i + 1) + ". " + products.get(i).getName() + " "
+                        + products.get(i).getQuantity().getValue() + " " + products.get(i).getQuantity().getUnit());
             }
 
             FileUtils.writeLines(file, "UTF-8", lines, false);

@@ -21,7 +21,6 @@ public class MenuGenerator {
             int numberOfMeatDishes,
             int numberOfPoultryDishes,
             int numberOfVeggieDishes) {
-
         List<Recipe> selectedFishDishes = getRandomDishes(RecipeType.FISH, numberOfFishDishes);
         List<Recipe> selectedMeatDishes = getRandomDishes(RecipeType.MEAT, numberOfMeatDishes);
         List<Recipe> selectedPoultryDishes = getRandomDishes(RecipeType.POULTRY, numberOfPoultryDishes);
@@ -33,9 +32,7 @@ public class MenuGenerator {
         allMenuRecipes.addAll(selectedPoultryDishes);
         allMenuRecipes.addAll(selectedVeggieDishes);
 
-        Menu menu = new Menu(allMenuRecipes);
-
-        return menu;
+        return new Menu(allMenuRecipes);
     }
 
     private List<Recipe> getRandomDishes(RecipeType recipeType, int numberOfDishes) {
@@ -43,6 +40,9 @@ public class MenuGenerator {
         Random rn = new Random();
         List<Recipe> selectedDishes = new ArrayList<>();
         for (int i = 0; i < numberOfDishes; i++) {
+            if (allDishes.isEmpty()) {
+                allDishes.addAll(recipeBook.getRecipeByType(recipeType));
+            }
             int randomIndex = rn.nextInt(allDishes.size());
             selectedDishes.add(allDishes.remove(randomIndex));
         }

@@ -40,30 +40,21 @@ public class ConsoleUI implements UI{
         System.out.println("If you want to make random menu, press 2");
         System.out.println("If you want to check what you can make from your supplies, press 3");
         System.out.println();
-        int choice = -1;
-        try {
-            choice = in.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid number, please try again.");
-            in.next();
-            options();
-        }
-
+        int choice = readNextInt();
         switch (choice) {
             case 1:
-                option1();
+                chooseFromRecipeBook();
                 break;
             case 2:
-                option2();
+                makeRandomMenu();
                 break;
             case 3:
-                option3();
+                showAvailableRecipes();
                 break;
             default:
                 System.out.println("Bad choice, repeat, please.");
                 options();
         }
-
     }
 
     private void productListPrinting(List<Product> products) {
@@ -98,30 +89,22 @@ public class ConsoleUI implements UI{
         System.out.println("Your reminder is printed");
     }
 
-    private void option1() {
+    private void chooseFromRecipeBook() {
         System.out.println("Select dishes by pressing number of the dish and when you're done - press 0");
         recipeListPrinting(recipeBook.getRecipes());
         List<Recipe> chosenRecipes = new ArrayList<>();
 
-        int numberOfDish = -1;
-        try {
-            numberOfDish = in.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid number, please try again.");
-            in.next();
-            option1();
-        }
+        int numberOfDish = readNextInt();
+
         while (numberOfDish != 0) {
-            if (numberOfDish >= 0 && numberOfDish < recipeBook.getRecipes().size()) {
+            if (numberOfDish > 0 && numberOfDish < recipeBook.getRecipes().size()) {
                 chosenRecipes.add(recipeBook.getRecipes().get(numberOfDish - 1));
-                numberOfDish = in.nextInt();
+                numberOfDish = readNextInt();
             } else {
-                System.out.println("Invalid number, please try again.");
-                in.next();
-                break;
+                System.out.println("Invalid number, please, try again.");
+                numberOfDish = readNextInt();
             }
         }
-
         System.out.println("Your choices are:");
         recipeListPrinting(chosenRecipes);
         System.out.println();
@@ -131,15 +114,15 @@ public class ConsoleUI implements UI{
         printOutReminder(chosenRecipes, supplies.productsToBuy(menu));
     }
 
-    private void option2() {
+    private void makeRandomMenu() {
         System.out.println("How many fish dishes you would like to eat this week?");
-        int numberOfFishDishes = in.nextInt();
+        int numberOfFishDishes = readNextInt();
         System.out.println("How many poultry dishes you would like to eat this week?");
-        int numberOfPoultryDishes = in.nextInt();
+        int numberOfPoultryDishes = readNextInt();
         System.out.println("How many meat dishes you would like to eat this week?");
-        int numberOfMeatDishes = in.nextInt();
+        int numberOfMeatDishes = readNextInt();
         System.out.println("How many vegetarian dishes you would like to eat this week?");
-        int numberOfVeggieDishes = in.nextInt();
+        int numberOfVeggieDishes = readNextInt();
         Menu newMenu = menuGenerator.makeRandomMenu(numberOfFishDishes, numberOfMeatDishes, numberOfPoultryDishes, numberOfVeggieDishes); //standard menu
         System.out.println("You can make this recipes:");
         recipeListPrinting(newMenu);
@@ -149,9 +132,22 @@ public class ConsoleUI implements UI{
         printOutReminder(newMenu.getMenuRecipes(), supplies.productsToBuy(newMenu));
     }
 
-    private void option3() {
+    private void showAvailableRecipes() {
         List<Recipe> recipesFromSupplies = menuGenerator.getRecipesFromProductsFromSupplies(supplies);
         System.out.println("You can make:");
         recipeListPrinting(recipesFromSupplies);
+    }
+
+    private int readNextInt() {
+        int choice = -1;
+        while (choice < 0) {
+            try {
+                choice = in.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid number, please, try again");
+                in.next();
+            }
+        }
+        return choice;
     }
 }

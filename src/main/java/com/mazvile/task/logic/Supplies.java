@@ -9,18 +9,10 @@ import java.util.List;
 
 public class Supplies {
 
-    private List<Product> supplies = new ArrayList<Product>();
-
-    public List<Product> getSupplies() {
-        return supplies;
-    }
+    private List<Product> supplies = new ArrayList<>();
 
     public void addProduct(Product product) {
         this.supplies.add(product);
-    }
-
-    public void addProducts(List<Product> products) {
-        this.supplies.addAll(products);
     }
 
     public boolean canIMakeThisRecipe(Recipe recipe) {
@@ -46,8 +38,7 @@ public class Supplies {
             }
         }
         List<Product> optimizedProducts = sumSameProducts(productsNeeded);
-        List<Product> productsToBuy = subtractSupplies(optimizedProducts);
-        return productsToBuy;
+        return subtractSupplies(optimizedProducts);
     }
 
     private List<Product> subtractSupplies(List<Product> productsNeeded) {

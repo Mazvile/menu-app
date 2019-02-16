@@ -22,7 +22,6 @@ public class ReaderFromFile implements IReader {
             BufferedReader buffreader = null;
 
             try {
-
                 Reader reader = new FileReader(file);
                 buffreader = new BufferedReader(reader);
                 String lineFromFile = buffreader.readLine();
@@ -41,9 +40,7 @@ public class ReaderFromFile implements IReader {
                     e.printStackTrace();
                 }
             }
-
         } else {
-
             try {
                 file.createNewFile();
             } catch (IOException e) {
@@ -58,6 +55,7 @@ public class ReaderFromFile implements IReader {
         String recipeName = parts[0];
         RecipeType recipeType = RecipeType.valueOf(parts[1]);
         List<Product> products = new ArrayList<>();
+
         for (int i = 2; i < parts.length; i = i + 3) {
             String productName = parts[i];
             int productValue = Integer.parseInt(parts[i + 1]);
@@ -65,8 +63,7 @@ public class ReaderFromFile implements IReader {
             Product product = new Product(productName, productValue, productUnits);
             products.add(product);
         }
-        Recipe recipe = new Recipe(recipeName, recipeType, products);
-        return recipe;
+        return new Recipe(recipeName, recipeType, products);
     }
 
     @Override
@@ -76,9 +73,7 @@ public class ReaderFromFile implements IReader {
 
         if (file.exists() && !file.isDirectory()) {
             BufferedReader buffreader = null;
-
             try {
-
                 Reader reader = new FileReader(file);
                 buffreader = new BufferedReader(reader);
                 String lineFromFile = buffreader.readLine();
@@ -87,7 +82,6 @@ public class ReaderFromFile implements IReader {
                     supplies.addProduct(productFromString(lineFromFile));
                     lineFromFile = buffreader.readLine();
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -97,9 +91,7 @@ public class ReaderFromFile implements IReader {
                     e.printStackTrace();
                 }
             }
-
         } else {
-
             try {
                 file.createNewFile();
             } catch (IOException e) {
@@ -114,7 +106,6 @@ public class ReaderFromFile implements IReader {
         String productName = parts[0];
         int productValue = Integer.parseInt(parts[1]);
         Units productUnits = Units.valueOf(parts[2]);
-        Product product = new Product(productName, productValue, productUnits);
-        return product;
+        return new Product(productName, productValue, productUnits);
     }
 }

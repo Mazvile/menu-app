@@ -9,7 +9,6 @@ import com.mazvile.task.ui.ConsoleUI;
 import com.mazvile.task.ui.UI;
 
 public class Main {
-
     public static void main(String[] args) {
         IReader reader = new ReaderFromFile();
         RecipeBook testBook = reader.readRecipes();

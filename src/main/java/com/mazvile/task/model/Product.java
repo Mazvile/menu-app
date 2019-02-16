@@ -5,9 +5,6 @@ public class Product {
     private String name;
     private Quantity quantity;
 
-    public Product() {
-    }
-
     public Product(String name, int value, Units units) {
         this.name = name;
         this.quantity = new Quantity();
@@ -19,15 +16,7 @@ public class Product {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Quantity getQuantity() {
         return quantity;
-    }
-
-    public void setQuantity(Quantity quantity) {
-        this.quantity = quantity;
     }
 }

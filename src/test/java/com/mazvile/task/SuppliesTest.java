@@ -10,10 +10,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SuppliesTest {
+class SuppliesTest {
 
     @Test
-    public void canIMakeThisRecipeShouldReturnTrueIfThereAreEnoughSupplies() {
+    void canIMakeThisRecipeShouldReturnTrueIfThereAreEnoughSupplies() {
         List<Product> products = new ArrayList<>();
         Product sugar = new Product("Sugar", 1000, Units.GRAMS);
         Product moreSugar = new Product("Sugar", 2000, Units.GRAMS);
@@ -25,7 +25,7 @@ public class SuppliesTest {
     }
 
     @Test
-    public void canIMakeThisRecipeShouldReturnFalseIfThereAreNotEnoughSupplies() {
+    void canIMakeThisRecipeShouldReturnFalseIfThereAreNotEnoughSupplies() {
         List<Product> products = new ArrayList<>();
         Product sugar = new Product("Sugar", 1000, Units.GRAMS);
         Product lessSugar = new Product("Sugar", 500, Units.GRAMS);
@@ -37,7 +37,7 @@ public class SuppliesTest {
     }
 
     @Test
-    public void productsToBuyShouldReturnEmptyListIfThereAreEnoughProducts() {
+    void productsToBuyShouldReturnEmptyListIfThereAreEnoughProducts() {
         List<Product> products1 = new ArrayList<>();
         List<Product> products2 = new ArrayList<>();
         List<Recipe> recipes = new ArrayList<>();
