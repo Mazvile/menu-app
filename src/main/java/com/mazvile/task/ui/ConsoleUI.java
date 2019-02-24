@@ -30,7 +30,7 @@ public class ConsoleUI implements UI{
     @Override
     public void start() {
         System.out.println("Hello, it's a menu making app");
-        System.out.println("Your options are listed below, please type the number to choose form them");
+        System.out.println("Your options are listed below, please type the number to choose form");
         System.out.println();
         options();
     }
@@ -115,13 +115,13 @@ public class ConsoleUI implements UI{
     }
 
     private void makeRandomMenu() {
-        System.out.println("How many fish dishes you would like to eat this week?");
+        System.out.println("How many fish dishes would you like to eat this week?");
         int numberOfFishDishes = readNextInt();
-        System.out.println("How many poultry dishes you would like to eat this week?");
+        System.out.println("How many poultry dishes would you like to eat this week?");
         int numberOfPoultryDishes = readNextInt();
-        System.out.println("How many meat dishes you would like to eat this week?");
+        System.out.println("How many meat dishes would you like to eat this week?");
         int numberOfMeatDishes = readNextInt();
-        System.out.println("How many vegetarian dishes you would like to eat this week?");
+        System.out.println("How many vegetarian dishes would you like to eat this week?");
         int numberOfVeggieDishes = readNextInt();
         Menu newMenu = menuGenerator.makeRandomMenu(numberOfFishDishes, numberOfMeatDishes, numberOfPoultryDishes, numberOfVeggieDishes); //standard menu
         System.out.println("You can make this recipes:");
